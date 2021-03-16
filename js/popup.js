@@ -32,8 +32,8 @@ const ReviewApp = {
       this.searchText = '查询中...'
       const xhr = new XMLHttpRequest()
       xhr.responseType = 'json'
-      // xhr.open("GET", `https://www.npmjs.com/search/suggestions?q=${this.searchValue}`, true)
-      xhr.open("GET", `http://localhost:3000/api?q=${this.searchValue}`, true)
+      xhr.open("GET", `https://www.npmjs.com/search/suggestions?q=${this.searchValue}`, true)
+      // xhr.open("GET", `http://localhost:3000/api?q=${this.searchValue}`, true)
       xhr.send()
       xhr.onreadystatechange = () => {
         this.searchText = '查询'
