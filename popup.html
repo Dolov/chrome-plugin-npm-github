@@ -9,7 +9,7 @@
 <style>
 
     #container {
-        width: 250px;
+        width: 360px;
     }
 
     .search-wrapper {
@@ -25,22 +25,58 @@
         cursor: pointer;
     }
 
+    .search-res-item {
+        padding: 3px 6px;
+    }
+    .search-res-item:hover {
+        background: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .search-res-item.active {
+        background: #1890ff;
+        color: white;
+    }
+
 </style>
 <body>
     <div id="container">
         <div class="search-wrapper"> 
-            <input @keyup.enter="search" @change="onChange" v-model="searchValue" type="text">
+            <input
+                ref="inputRef"
+                @keyup.enter="search"
+                @change="onChange"
+                v-model="searchValue"
+                type="text"
+                placeholder="请输入 npm 包名称"
+            >
             <button class="search-button" @click="search">{{searchText}}</button>
         </div>
-        <div class="search-res-wrapper" v-show="searchResponse">
+        <ul>
+            <li
+                v-for="item in searchResponse"
+                @click="onCheck(item)"
+                class="search-res-item"
+                :class="{ active: item.name === currentChecked?.name }"
+            >
+                {{item.name}}
+            </li>
+        </ul>
+        <div class="search-res-wrapper" v-show="currentChecked">
             <button>
-                <a v-bind:href="searchResponse?.Homepage" target="_blank">Homepage</a>
+                <a v-bind:href="currentChecked?.links?.homepage" target="_blank">Homepage</a>
             </button>
             <button>
-                <a v-bind:href="searchResponse?.Repository" target="_blank">Repository</a>
+                <a v-bind:href="currentChecked?.links?.repository" target="_blank">Repository</a>
             </button>
             <button>
-                <a v-bind:href="searchResponse?.Github1s" target="_blank">Github1s</a>
+                <a v-bind:href="getGithub1s(currentChecked?.links?.repository)" target="_blank">Github1s</a>
+            </button>
+            <button>
+                <a v-bind:href="currentChecked?.links?.bugs" target="_blank">Bugs</a>
+            </button>
+            <button>
+                <a v-bind:href="currentChecked?.links?.npm" target="_blank">Npm</a>
             </button>
         </div>
     </div>
