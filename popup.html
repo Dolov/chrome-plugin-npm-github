@@ -29,7 +29,7 @@
 <body>
     <div id="container">
         <div class="search-wrapper"> 
-            <input @change="onChange" v-model="searchValue" type="text">
+            <input @keyup.enter="search" @change="onChange" v-model="searchValue" type="text">
             <button class="search-button" @click="search">{{searchText}}</button>
         </div>
         <div class="search-res-wrapper" v-show="searchResponse">
