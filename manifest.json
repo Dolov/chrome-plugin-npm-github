@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "simple-translate - 简单的翻译记录工具",
+	"name": "npm-github - 根据 npm 包名获取 github 地址",
 	"version": "1.0.0",
-	"description": "简单的翻译插件",
+	"description": "根据 npm 包名获取 github 地址",
 	"icons": {
 		"16": "icon/icon.png"
 	},
@@ -13,17 +13,9 @@
 	"browser_action": 
 	{
 		"default_icon": "icon/icon.png",
-		"default_title": "简单的翻译插件",
+		"default_title": "根据 npm 包名获取 github 地址",
 		"default_popup": "popup.html"
 	},
-	"content_scripts": 
-	[
-		{
-			"matches": ["<all_urls>"],
-			"css": ["css/content_scripts.css"],
-			"js": ["js/content_scripts.js"]
-		}
-	],
 	"permissions":
 	[
 		"contextMenus",

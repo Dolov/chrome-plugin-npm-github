@@ -6,7 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+
+    #container {
+        width: 250px;
+    }
+
+    .search-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .search-res-wrapper button {
+        margin-right: 6px;
+    }
+
+    .search-button {
+        margin-left: 8px;
+        cursor: pointer;
+    }
+
+</style>
 <body>
-    popup
+    <div id="container">
+        <div class="search-wrapper"> 
+            <input @change="onChange" v-model="searchValue" type="text">
+            <button class="search-button" @click="search">{{searchText}}</button>
+        </div>
+        <div class="search-res-wrapper" v-show="searchResponse">
+            <button>
+                <a v-bind:href="searchResponse?.Homepage" target="_blank">Homepage</a>
+            </button>
+            <button>
+                <a v-bind:href="searchResponse?.Repository" target="_blank">Repository</a>
+            </button>
+            <button>
+                <a v-bind:href="searchResponse?.Github1s" target="_blank">Github1s</a>
+            </button>
+        </div>
+    </div>
 </body>
+<script src="./js/vue.js"></script>
+<script src="./js/popup.js"></script>
 </html>
