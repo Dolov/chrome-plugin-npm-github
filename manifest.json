@@ -1,0 +1,37 @@
+{
+	"manifest_version": 2,
+	"name": "simple-translate - 简单的翻译记录工具",
+	"version": "1.0.0",
+	"description": "简单的翻译插件",
+	"icons": {
+		"16": "icon/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "icon/icon.png",
+		"default_title": "简单的翻译插件",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["<all_urls>"],
+			"css": ["css/content_scripts.css"],
+			"js": ["js/content_scripts.js"]
+		}
+	],
+	"permissions":
+	[
+		"contextMenus",
+		"webRequest",
+		"storage"
+	],
+	"homepage_url": "https://www.baidu.com",
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"options_page": "options.html",
+	"devtools_page": "devtools.html"
+}
