@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "npm-github - 根据 npm 包名获取 github 地址",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "根据 npm 包名获取 github 地址",
 	"icons": {
 		"16": "icon/icon.png"
