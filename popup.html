@@ -63,19 +63,19 @@
             </li>
         </ul>
         <div class="search-res-wrapper" v-show="currentChecked">
-            <button>
+            <button v-if="currentChecked?.links?.homepage">
                 <a v-bind:href="currentChecked?.links?.homepage" target="_blank">Homepage</a>
             </button>
-            <button>
+            <button v-if="currentChecked?.links?.repository">
                 <a v-bind:href="currentChecked?.links?.repository" target="_blank">Repository</a>
             </button>
-            <button>
+            <button v-if="getGithub1s(currentChecked?.links?.repository)">
                 <a v-bind:href="getGithub1s(currentChecked?.links?.repository)" target="_blank">Github1s</a>
             </button>
-            <button>
+            <button v-if="currentChecked?.links?.bugs">
                 <a v-bind:href="currentChecked?.links?.bugs" target="_blank">Bugs</a>
             </button>
-            <button>
+            <button v-if="currentChecked?.links?.npm">
                 <a v-bind:href="currentChecked?.links?.npm" target="_blank">Npm</a>
             </button>
         </div>
